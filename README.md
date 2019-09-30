@@ -1,3 +1,5 @@
+NOTE: After downloading application, use command npm ci to generate the entire dependency tree from package-lock.json file.
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
