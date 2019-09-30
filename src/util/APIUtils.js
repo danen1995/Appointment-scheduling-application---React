@@ -30,7 +30,15 @@ export function getCurrentUser() {
     }
 
     return request({
-        url: API_BASE_URL + "/user/me",
+        url: API_BASE_URL + "/auth/user/me",
         method: 'GET'
+    });
+}
+
+export function login(loginRequest) {
+    return request({
+        url: API_BASE_URL + "/auth/signin",
+        method: 'POST',
+        body: JSON.stringify(loginRequest)
     });
 }
