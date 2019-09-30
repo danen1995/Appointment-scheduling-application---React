@@ -3,6 +3,7 @@ import './App.css';
 import LoadingIndicator from '../common/LoadingIndicator';
 import { getCurrentUser } from '../util/APIUtils';
 import Login from '../user/login/Login';
+import { ACCESS_TOKEN } from '../constants';
 import {
   Route,
   withRouter,
@@ -20,6 +21,7 @@ class App extends Component {
       isAuthenticated: false,
       isLoading: false
     }
+    this.handleLogout = this.handleLogout.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
     this.loadCurrentUser = this.loadCurrentUser.bind(this);
   }
@@ -51,7 +53,21 @@ class App extends Component {
     this.loadCurrentUser();
   }
 
+  handleLogout(redirectTo = "/", notificationType = "success", description = "You're successfully logged out.") {
+    localStorage.removeItem(ACCESS_TOKEN);
 
+    this.setState({
+      currentUser: null,
+      isAuthenticated: false
+    });
+
+    this.props.history.push(redirectTo);
+
+    notification[notificationType]({
+      message: 'Success',
+      description: description,
+    });
+  }
 
   handleLogin() {
     notification.success({
