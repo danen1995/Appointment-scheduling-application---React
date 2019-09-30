@@ -3,6 +3,8 @@ import './App.css';
 import LoadingIndicator from '../common/LoadingIndicator';
 import { getCurrentUser } from '../util/APIUtils';
 import Login from '../user/login/Login';
+import Profile from '../user/profile/Profile';
+
 import { ACCESS_TOKEN } from '../constants';
 import {
   Route,
@@ -42,6 +44,8 @@ class App extends Component {
             <Switch>
               <Route path="/login"
                 render={(props) => <Login onLogin={this.handleLogin} {...props} />}></Route>
+              <Route path="/users/me"
+                render={(props) => <Profile  {...props} />}></Route>
             </Switch>
           </div>
         </Content>

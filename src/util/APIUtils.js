@@ -28,7 +28,6 @@ export function getCurrentUser() {
     if (!localStorage.getItem(ACCESS_TOKEN)) {
         return Promise.reject("No access token set.");
     }
-
     return request({
         url: API_BASE_URL + "/auth/user/me",
         method: 'GET'
@@ -42,3 +41,4 @@ export function login(loginRequest) {
         body: JSON.stringify(loginRequest)
     });
 }
+

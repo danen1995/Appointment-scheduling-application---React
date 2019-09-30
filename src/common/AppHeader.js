@@ -44,9 +44,7 @@ class AppHeader extends Component {
         </Menu.Item>
       ];
     }
-
     return (
-
       <Header className="app-header">
         <div className="container">
           <div className="app-title" >
@@ -72,15 +70,12 @@ function ProfileDropdownMenu(props) {
     <Menu onClick={props.handleMenuClick} className="profile-dropdown-menu">
       <Menu.Item key="user-info" className="dropdown-item" disabled>
         <div className="user-full-name-info">
-          {props.currentUser.name}
-        </div>
-        <div className="username-info">
-          @{props.currentUser.username}
+          {props.currentUser.ime + " " +props.currentUser.prezime}
         </div>
       </Menu.Item>
       <Menu.Divider />
       <Menu.Item key="profile" className="dropdown-item">
-        <Link to={`/users/${props.currentUser.username}`}>Profile</Link>
+        <Link to={"/users/me"}>Profile</Link>
       </Menu.Item>
       <Menu.Item key="logout" className="dropdown-item">
         Logout
