@@ -22,7 +22,7 @@ class Profile extends Component {
         this.loadUserProfile = this.loadUserProfile.bind(this);
     }
 
-    loadUserProfile(username) {
+    loadUserProfile() {
         this.setState({
             isLoading: true
         });
@@ -64,6 +64,7 @@ class Profile extends Component {
 
     render() {
         let formItems;
+
         if (this.state.isLoading) {
             return <LoadingIndicator />;
         }
@@ -100,7 +101,7 @@ class Profile extends Component {
                             name="korisnickoIme" />
                     </FormItem>,
                     <FormItem className="stavka-forme">
-                        <Input value={ "Kabinet " + this.state.user.kabinet} disabled={true}
+                        <Input value={"Kabinet " + this.state.user.kabinet} disabled={true}
                             prefix={<Icon type="user" />}
                             size="large"
                             name="korisnickoIme" />

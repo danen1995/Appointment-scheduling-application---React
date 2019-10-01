@@ -13,6 +13,7 @@ import {
 } from 'react-router-dom';
 import AppHeader from '../common/AppHeader';
 import { Layout, notification } from 'antd';
+import Signup from '../user/signup/Signup';
 const { Content } = Layout;
 
 class App extends Component {
@@ -46,6 +47,8 @@ class App extends Component {
                 render={(props) => <Login onLogin={this.handleLogin} {...props} />}></Route>
               <Route path="/users/me"
                 render={(props) => <Profile  {...props} />}></Route>
+              <Route path="/signup"
+                render={(props) => <Signup  {...props} />}></Route>
             </Switch>
           </div>
         </Content>
