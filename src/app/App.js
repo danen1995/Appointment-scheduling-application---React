@@ -3,6 +3,8 @@ import './App.css';
 import LoadingIndicator from '../common/LoadingIndicator';
 import { getCurrentUser } from '../util/APIUtils';
 import Login from '../user/login/Login';
+import Calendar from '../calendar/Calendar';
+
 import Profile from '../user/profile/Profile';
 
 import { ACCESS_TOKEN } from '../constants';
@@ -49,6 +51,8 @@ class App extends Component {
                 render={(props) => <Profile  {...props} />}></Route>
               <Route path="/signup"
                 render={(props) => <Signup  {...props} />}></Route>
+              <Route path="/calendar"
+                render={(props) => <Calendar className="fc-view-container"  {...props} />}></Route>
             </Switch>
           </div>
         </Content>
