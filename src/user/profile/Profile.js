@@ -70,47 +70,47 @@ class Profile extends Component {
         }
 
         if (this.state.user) {
-            if (this.state.user.brojIndeksa) {
+            if (this.state.user.indexNumber) {
                 formItems = [
-                    <FormItem className="stavka-forme">
-                        <Input value={this.state.user.ime + " " + this.state.user.prezime} disabled={true}
+                    <FormItem className="form-item">
+                        <Input value={this.state.user.firstName + " " + this.state.user.lastName} disabled={true}
                             prefix={<Icon type="user" />}
                             size="large"
-                            name="korisnickoIme" />
+                            name="userName" />
                     </FormItem>,
-                    <FormItem className="stavka-forme">
-                        <Input value={this.state.user.brojIndeksa} disabled={true}
+                    <FormItem className="form-item">
+                        <Input value={this.state.user.indexNumber} disabled={true}
                             prefix={<Icon type="user" />}
                             size="large"
-                            name="korisnickoIme" />
+                            name="userName" />
                     </FormItem>,
-                    <FormItem className="stavka-forme">
+                    <FormItem className="form-item">
                         <Input value={this.state.user.email} disabled={true}
                             prefix={<Icon type="user" />}
                             size="large"
-                            name="korisnickoIme" />
+                            name="userName" />
                     </FormItem>
                 ];
             }
-            if (this.state.user.jmbg) {
+            if (this.state.user.teacherId) {
                 formItems = [
-                    <FormItem className="stavka-forme">
-                        <Input value={this.state.user.ime + " " + this.state.user.prezime} disabled={true}
+                    <FormItem className="form-item">
+                        <Input value={this.state.user.firstName + " " + this.state.user.lastName} disabled={true}
                             prefix={<Icon type="user" />}
                             size="large"
-                            name="korisnickoIme" />
+                            name="userName" />
                     </FormItem>,
-                    <FormItem className="stavka-forme">
-                        <Input value={"Kabinet " + this.state.user.kabinet} disabled={true}
+                    <FormItem className="form-item">
+                        <Input value={"cabinet " + this.state.user.cabinet} disabled={true}
                             prefix={<Icon type="user" />}
                             size="large"
-                            name="korisnickoIme" />
+                            name="userName" />
                     </FormItem>,
-                    <FormItem className="stavka-forme">
+                    <FormItem className="form-item">
                         <Input value={this.state.user.email} disabled={true}
                             prefix={<Icon type="user" />}
                             size="large"
-                            name="korisnickoIme" />
+                            name="userName" />
                     </FormItem>
                 ]
             }
@@ -138,12 +138,12 @@ class Profile extends Component {
                             <div className="user-details">
                                 <div className="user-avatar">
                                     <Avatar className="user-avatar-circle" >
-                                        {this.state.user.ime[0].toUpperCase()}
+                                        {this.state.user.firstName[0].toUpperCase()}
                                     </Avatar>
                                 </div>
                                 <div className="user-summary">
-                                    <div className="full-name">{this.state.user.ime}</div>
-                                    <div className="username">@{this.state.user.prezime}</div>
+                                    <div className="full-name">{this.state.user.firstName}</div>
+                                    <div className="username">@{this.state.user.lastName}</div>
                                 </div>
                             </div>
                             <div className="user-poll-details">

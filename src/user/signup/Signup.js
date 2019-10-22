@@ -14,7 +14,7 @@ class Signup extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            brojIndeksa: {
+            indexNumber: {
                 value: ''
             },
             username: {
@@ -48,10 +48,10 @@ class Signup extends Component {
 
         const signupRequest = {
             student: {
-                brojIndeksa: this.state.brojIndeksa.value
+                indexNumber: this.state.indexNumber.value
             },
-            korisnickoIme: this.state.username.value,
-            lozinka: this.state.password.value
+            userName: this.state.username.value,
+            password: this.state.password.value
         };
         signup(signupRequest)
             .then(response => {
@@ -69,7 +69,7 @@ class Signup extends Component {
     }
 
     isFormInvalid() {
-        return !(this.state.brojIndeksa.validateStatus === 'success' &&
+        return !(this.state.indexNumber.validateStatus === 'success' &&
             this.state.username.validateStatus === 'success' &&
             this.state.password.validateStatus === 'success'
         );
@@ -84,15 +84,15 @@ class Signup extends Component {
                     <Form onSubmit={this.handleSubmit} className="signup-form">
                         <FormItem
                             label="Your index number"
-                            validateStatus={this.state.brojIndeksa.validateStatus}
-                            help={this.state.brojIndeksa.errorMsg}>
+                            validateStatus={this.state.indexNumber.validateStatus}
+                            help={this.state.indexNumber.errorMsg}>
                             <Input
                                 size="large"
-                                name="brojIndeksa"
+                                name="indexNumber"
                                 autoComplete="off"
                                 placeholder="Your index number in format YYYY/nnnn."
-                                value={this.state.brojIndeksa.value}
-                                onChange={(event) => this.handleInputChange(event, this.validateBrojIndeksa)} />
+                                value={this.state.indexNumber.value}
+                                onChange={(event) => this.handleInputChange(event, this.validateindexNumber)} />
                         </FormItem>
                         <FormItem label="Username"
                             hasFeedback
@@ -136,20 +136,20 @@ class Signup extends Component {
 
     // Validation Functions
 
-    validateBrojIndeksa = (brojIndeksa) => {
-        if (!brojIndeksa.includes('/')) {
+    validateindexNumber = (indexNumber) => {
+        if (!indexNumber.includes('/')) {
             return {
                 validateStatus: 'error',
                 errorMsg: `Index number format is invalid`
             }
 
         }
-        if (brojIndeksa.length < 9) {
+        if (indexNumber.length < 9) {
             return {
                 validateStatus: 'error',
                 errorMsg: `Index number is too short`
             }
-        } else if (brojIndeksa.length > 9) {
+        } else if (indexNumber.length > 9) {
             return {
                 validationStatus: 'error',
                 errorMsg: `Index number is too long`

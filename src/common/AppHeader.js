@@ -32,7 +32,10 @@ class AppHeader extends Component {
           <ProfileDropdownMenu
             currentUser={this.props.currentUser}
             handleMenuClick={this.handleMenuClick} />
-        </Menu.Item>
+        </Menu.Item>,
+           <Menu.Item key="/calendar">
+           <Link to="/calendar">Calendar</Link>
+         </Menu.Item>
       ];
     } else {
       menuItems = [
@@ -41,10 +44,8 @@ class AppHeader extends Component {
         </Menu.Item>,
         <Menu.Item key="/signup">
           <Link to="/signup">Signup</Link>
-        </Menu.Item>,
-        <Menu.Item key="/calendar">
-          <Link to="/calendar">Calendar</Link>
         </Menu.Item>
+     
       ];
     }
     return (
@@ -73,7 +74,7 @@ function ProfileDropdownMenu(props) {
     <Menu onClick={props.handleMenuClick} className="profile-dropdown-menu">
       <Menu.Item key="user-info" className="dropdown-item" disabled>
         <div className="user-full-name-info">
-          {props.currentUser.ime + " " + props.currentUser.prezime}
+          {props.currentUser.firstName + " " + props.currentUser.lastName}
         </div>
       </Menu.Item>
       <Menu.Divider />

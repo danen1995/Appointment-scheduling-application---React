@@ -1,4 +1,4 @@
-import { API_BASE_URL, POLL_LIST_SIZE, ACCESS_TOKEN } from '../constants';
+import { API_BASE_URL, ACCESS_TOKEN } from '../constants';
 
 const request = (options) => {
     const headers = new Headers({
@@ -59,7 +59,7 @@ export function checkUsernameAvailability(username) {
 
 export function getConsultationsForProfessorsCalendar(professorsId, calendarId) {
     return request({
-        url: "http://localhost:8083/konsultacije/zaNastavnikovKalendar?jmbg=" + professorsId + "&idKalendara=" + calendarId,
+        url: "http://localhost:8084/consultations/fromTeachersCalendar?teacherId=" + professorsId + "&calendarId=" + calendarId,
         type: "GET",
         async: false,
         contentType: "application/json",
@@ -67,8 +67,15 @@ export function getConsultationsForProfessorsCalendar(professorsId, calendarId) 
     });
 }
 
-
-
+export function dodajKonsultaciju(konsultacija) {
+    return request({
+        url: "http://localhost:8084/consultation/add",
+        method: 'POST',
+        async: false,
+        body: JSON.stringify(konsultacija),
+        contentType: "application/json",
+    });
+}
 
 // export function dodajKonsultaciju() {
 //     return request({
@@ -83,12 +90,12 @@ export function getConsultationsForProfessorsCalendar(professorsId, calendarId) 
 // }
 // function kreirajKonsultacije() {
 //     return {
-//         'dogadjajPK': JSON.parse("{\"idKalendara\": " + 1 + "}"),
-//         'datumIVremePocetka': self.datumIVremePocetka(),
-//         'datumIVremeZavrsetka': self.datumIVremeZavrsetka(),
+//         'eventPK': JSON.parse("{\"idKalendara\": " + 1 + "}"),
+//         'startDateTime': self.startDateTime(),
+//         'endDateTime': self.endDateTime(),
 //         'mestoOdrzavanja': self.mestoOdrzavanja(),
-//         'idTipaDogadjaja': tipDogadjaja,
-//         'kapacitet': self.kapacitet(),
+//         'idTipaeventa': tipeventa,
+//         'capacity': self.capacity(),
 //         'brojZakazanih': 0
 //     };
 // };

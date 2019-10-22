@@ -32,24 +32,24 @@ class LoginForm extends Component {
         return (
             <Form onSubmit={this.handleSubmit} className="login-form">
                 <FormItem>
-                    {getFieldDecorator('korisnickoIme', {
+                    {getFieldDecorator('userName', {
                         rules: [{ required: true, message: 'Please input your username!' }],
                     })(
                         <Input
                             prefix={<Icon type="user" />}
                             size="large"
-                            name="korisnickoIme"
+                            name="userName"
                             placeholder="Username or Email" />
                     )}
                 </FormItem>
                 <FormItem>
-                    {getFieldDecorator('lozinka', {
+                    {getFieldDecorator('password', {
                         rules: [{ required: true, message: 'Please input your Password!' }],
                     })(
                         <Input
                             prefix={<Icon type="lock" />}
                             size="large"
-                            name="lozinka"
+                            name="password"
                             type="password"
                             placeholder="Password" />
                     )}
